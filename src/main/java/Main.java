@@ -10,16 +10,21 @@ public class Main {
             boolean True = true;
             while(True) {
                 System.out.println("Введите скорость " + (i + 1) + " машины: ");
-                int speedCar = scanner.nextInt();
-                if (speedCar <= 250 && speedCar > 0) {
-                    car.speed = speedCar;
-                    System.out.println("Введите имя " + (i + 1) + " машины: ");
-                    car.name = scanner.next();
-                    cars.add(car);
-                    True = false;
+                if(scanner.hasNextInt()) {
+                    int speedCar = scanner.nextInt();
+                    if (speedCar <= 250 && speedCar > 0) {
+                        car.speed = speedCar;
+                        System.out.println("Введите имя " + (i + 1) + " машины: ");
+                        car.name = scanner.next();
+                        cars.add(car);
+                        True = false;
+                    } else {
+                        System.out.println("Скорость введена не верно");
+                    }
                 }
                 else{
-                    System.out.println("Скорость введена не верно");
+                    System.out.println("Некорректный ввод.Пожалуйста,введите целое число для скорости");
+                    scanner.next();
                 }
             }
 
